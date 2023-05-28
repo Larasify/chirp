@@ -15,9 +15,6 @@ dayjs.extend(relativeTime);
 
 const CreatePostWizard = () => {
   const { user } = useUser();
-  if (!user) {
-    return null;
-  }
 
   const [input, setInput] = useState("");
 
@@ -28,6 +25,10 @@ const CreatePostWizard = () => {
       void ctx.posts.getAll.invalidate();
     },
   });
+
+  if (!user) {
+    return null;
+  }
 
   return (
     <div className="flex w-full gap-3">
