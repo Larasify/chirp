@@ -11,7 +11,7 @@ const MyApp: AppType = ({ Component, pageProps }) => {
       <Head>
         <title>Chirp</title>
         <meta name="description" content="waow based" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/turtle.svg" />
       </Head>
       <Toaster position="bottom-center" />
       <Component {...pageProps} />

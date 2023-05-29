@@ -3,7 +3,7 @@
 
 This was created as a learning excercise following Theo(t3.gg)'s stack tutorial. Was my first attempt at Next/React/Serverless and a bunch of other techs.
  
-Deployed using vercel, planetscale, axiom and upstash
+Deployed using vercel, planetscale, axiom, clerk and upstash
 
 # TODO
 - [] static navigation menu on left side
@@ -18,6 +18,7 @@ Deployed using vercel, planetscale, axiom and upstash
 - [] sticky footer pre render before any data is fetched
 - [] sign out button
 - [] hide hover links on card
+- [] link inside link works but errors
 
 # Create T3 App
 
