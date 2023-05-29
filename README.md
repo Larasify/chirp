@@ -1,3 +1,10 @@
+# TODO
+- [] static navigation menu on left side
+- [] profile descriptions and able to edit if profile page is mine
+- [] gmail login use first name
+- [] infinite scrolling with hybrid loading
+- [] new api's
+
 # Create T3 App
 
 This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
