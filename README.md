@@ -10,7 +10,7 @@ This was created as a learning excercise following Theo(t3.gg)'s stack tutorial.
 - [] infinite scrolling with hybrid loading
 - [] character count left to post
 - [x] clickable cards to go to post 
-- [] back button on profile and post
+- [x] back button on profile and post
 - [] scrolling anywhere to scroll only inside
 - [] sticky footer pre render before any data is fetched
 - [] sign out button
