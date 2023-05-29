@@ -2,18 +2,22 @@
 [Deployed Here](https://chirp-larasify.vercel.app/)
 
 This was created as a learning excercise following Theo(t3.gg)'s stack tutorial. Was my first attempt at Next/React/Serverless and a bunch of other techs.
+ 
+Deployed using vercel, planetscale, axiom and upstash
 
 # TODO
 - [] static navigation menu on left side
 - [] profile descriptions and able to edit if profile page is mine
 - [] gmail login use first name
 - [] infinite scrolling with hybrid loading
-- [] character count left to post
+- [] character count left to post and that cute ring thing twitter has
 - [x] clickable cards to go to post 
 - [x] back button on profile and post
 - [] scrolling anywhere to scroll only inside
+- [] tailwind add utility to hidde scrollbar
 - [] sticky footer pre render before any data is fetched
 - [] sign out button
+- [] hide hover links on card
 
 # Create T3 App
 

@@ -124,7 +124,7 @@ const Home: NextPage = () => {
         </div>
         <Feed />
         <div className="flex items-center justify-between p-4 text-xl">
-        <a href="https://github.com/larasify">
+        <a href="https://github.com/Larasify/chirp">
           <div className="flex items-center justify-center gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
