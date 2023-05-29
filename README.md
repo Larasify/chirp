@@ -4,7 +4,9 @@
 - [] gmail login use first name
 - [] infinite scrolling with hybrid loading
 - [] character count left to post
-- [] clickable cards to go to post 
+- [x] clickable cards to go to post 
+- [] back button on profile and post
+- [] scrolling anywhere to scroll only inside
 
 # Create T3 App
 
