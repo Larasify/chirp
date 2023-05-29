@@ -3,8 +3,8 @@
 - [] profile descriptions and able to edit if profile page is mine
 - [] gmail login use first name
 - [] infinite scrolling with hybrid loading
-- [] new api's
 - [] character count left to post
+- [] clickable cards to go to post 
 
 # Create T3 App
 
