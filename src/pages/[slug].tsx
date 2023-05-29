@@ -21,7 +21,7 @@ const ProfilePage: NextPage<{ username: string }> = ({ username }) => {
 
   if (isLoading) return <LoadingPage />;
 
-  if (!data) return <div>404</div>;
+  if (!data || !data.username) return <div>404</div>;
 
   return (
     <>
@@ -32,7 +32,7 @@ const ProfilePage: NextPage<{ username: string }> = ({ username }) => {
         <div className="relative h-36 bg-slate-600">
           <Image
             src={data.profileImageUrl}
-            alt={`${data.username ?? ""}'s Profile Image`}
+            alt={`${data.username}'s Profile Image`}
             width={128}
             height={128}
             className="absolute bottom-0 left-0 -mb-[64px] ml-4 rounded-full border-4 border-black bg-black"
