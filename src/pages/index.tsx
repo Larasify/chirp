@@ -44,7 +44,7 @@ const CreatePostWizard = () => {
   }
 
   return (
-    <div className="flex w-full gap-3 items-center">
+    <div className="flex w-full items-center gap-3">
       <Image
         src={user.profileImageUrl}
         alt="Profile image"
@@ -101,10 +101,14 @@ const PostView = (props: PostWithUser) => {
       />
       <div className="flex flex-col gap-1">
         <div className="flex gap-1 text-slate-300">
-          <span>{`@${author.username}`}</span>
-          <span className="font-thin">{` · ${dayjs(
-            post.createdAt
-          ).fromNow()}`}</span>
+          <Link href={`/@${author.username}`}>
+            <span>{`@${author.username}`}</span>
+          </Link>
+          <Link href={`/post/${post.id}`}>
+            <span className="font-thin">{` · ${dayjs(
+              post.createdAt
+            ).fromNow()}`}</span>
+          </Link>
         </div>
         <span className="break-all text-xl">{post.content}</span>
       </div>
