@@ -1,3 +1,8 @@
+# About
+[Deployed Here](https://chirp-larasify.vercel.app/)
+
+This was created as a learning excercise following Theo(t3.gg)'s stack tutorial. Was my first attempt at Next/React/Serverless and a bunch of other techs.
+
 # TODO
 - [] static navigation menu on left side
 - [] profile descriptions and able to edit if profile page is mine
@@ -7,6 +12,8 @@
 - [x] clickable cards to go to post 
 - [] back button on profile and post
 - [] scrolling anywhere to scroll only inside
+- [] sticky footer pre render before any data is fetched
+- [] sign out button
 
 # Create T3 App
 
