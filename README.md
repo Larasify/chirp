@@ -4,6 +4,7 @@
 - [] gmail login use first name
 - [] infinite scrolling with hybrid loading
 - [] new api's
+- [] character count left to post
 
 # Create T3 App
 

@@ -8,8 +8,9 @@ import type { RouterOutputs } from "~/utils/api";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import Image from "next/image";
-import { LoadingPage } from "~/components/loading";
+import { LoadingPage, LoadingSpinner } from "~/components/loading";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 dayjs.extend(relativeTime);
 
@@ -24,6 +25,18 @@ const CreatePostWizard = () => {
       setInput("");
       void ctx.posts.getAll.invalidate();
     },
+    onError: (e) => {
+      const errorMessage = e.data?.zodError?.fieldErrors?.content;
+      if (errorMessage && errorMessage[0]) {
+        toast.error(errorMessage[0], {
+          style: { borderRadius: "10px", background: "#333", color: "#fff" },
+        });
+      } else {
+        toast.error("Failed to post", {
+          style: { borderRadius: "10px", background: "#333", color: "#fff" },
+        });
+      }
+    },
   });
 
   if (!user) {
@@ -31,7 +44,7 @@ const CreatePostWizard = () => {
   }
 
   return (
-    <div className="flex w-full gap-3">
+    <div className="flex w-full gap-3 items-center">
       <Image
         src={user.profileImageUrl}
         alt="Profile image"
@@ -45,18 +58,31 @@ const CreatePostWizard = () => {
         type="text"
         value={input}
         onChange={(e) => setInput(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            e.preventDefault();
+            mutate({ content: input });
+          }
+        }}
         disabled={isPosting}
       />
-      <button
-        onClick={() => {
-          mutate({ content: input });
-          setInput("");
-        }}
-        className="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-600"
-      >
-        {" "}
-        Post{" "}
-      </button>
+      {!isPosting && (
+        <button
+          onClick={() => {
+            mutate({ content: input });
+          }}
+          disabled={input == ""}
+          className="h-10 rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-600 disabled:bg-blue-900"
+        >
+          {" "}
+          Post{" "}
+        </button>
+      )}
+      {isPosting && (
+        <div className="flex items-center justify-center pr-5">
+          <LoadingSpinner size={30} />
+        </div>
+      )}
     </div>
   );
 };
@@ -80,7 +106,7 @@ const PostView = (props: PostWithUser) => {
             post.createdAt
           ).fromNow()}`}</span>
         </div>
-        <span className="text-xl">{post.content}</span>
+        <span className="break-all text-xl">{post.content}</span>
       </div>
     </div>
   );
@@ -109,7 +135,6 @@ const Home: NextPage = () => {
 
   //start fetching instantly react query you only need to fetch data once it will use the same data as long as its the same it will use cached data
   api.posts.getAll.useQuery();
-
 
   if (!userLoaded) {
     return <div></div>;
