@@ -13,12 +13,13 @@ Deployed using vercel, planetscale, axiom, clerk and upstash
 - [] character count left to post and that cute ring thing twitter has
 - [x] clickable cards to go to post 
 - [x] back button on profile and post
-- [] scrolling anywhere to scroll only inside
+- [x] ~~scrolling anywhere to scroll only inside~~(there is a warning now :c)
 - [] tailwind add utility to hidde scrollbar
 - [] sticky footer pre render before any data is fetched
 - [] sign out button
 - [] hide hover links on card
 - [] link inside link works but errors
+- [] move CI from vercel to github
 
 # Create T3 App
 
