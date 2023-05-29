@@ -110,6 +110,7 @@ const Home: NextPage = () => {
   //start fetching instantly react query you only need to fetch data once it will use the same data as long as its the same it will use cached data
   api.posts.getAll.useQuery();
 
+
   if (!userLoaded) {
     return <div></div>;
   }
