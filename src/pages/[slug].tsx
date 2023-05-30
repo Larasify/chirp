@@ -7,7 +7,6 @@ import { PageLayout } from "~/components/layout";
 import { PostView } from "~/components/postview";
 import { generateSSGHelper } from "~/server/helpers/ssghelper";
 import { BackButton } from "~/components/backbutton";
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 const ProfileFeed = (props: { userId: string }) => {
@@ -72,9 +71,7 @@ const ProfilePage: NextPage<{ username: string }> = ({ username }) => {
       <PageLayout>
         <div>
           <div className="relative h-36 bg-slate-600">
-            <Link href={"/"}>
-              <BackButton />
-            </Link>
+            <BackButton />
             <Image
               src={data.profileImageUrl}
               alt={`${data.username}'s Profile Image`}

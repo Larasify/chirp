@@ -1,3 +1,5 @@
+import router from "next/router";
+
 export const BackButton = (props: { colour?: string }) => {
   let cn = "mr-2 inline-flex rotate-180 items-center rounded-full bg-slate-600 p-2.5 text-center text-sm font-medium text-white hover:bg-slate-500 focus:outline-none  dark:bg-slate-600 dark:hover:bg-slate-500";
   if (props.colour === "black") {
@@ -7,6 +9,9 @@ export const BackButton = (props: { colour?: string }) => {
     <button
       type="button"
       className={cn}
+      onClick={() => {
+        router.back();
+      }}
     >
       <svg
         aria-hidden="true"
