@@ -15,11 +15,11 @@ export const PostView = (props: PostWithUser) => {
   const router = useRouter();
 
   const handleCardClick = () => {
-    router.push(`/post/${post.id}`);
+    void router.push(`/post/${post.id}`);
   };
   const handleProfileClick = (event: React.MouseEvent) => {
     event.stopPropagation();
-    router.push(`/@${author.username}`);
+    void router.push(`/@${author.username}`);
   };
 
   return (

@@ -11,7 +11,7 @@ Deployed using vercel, planetscale, axiom, clerk and upstash
 - [] gmail login use first name
 - [] infinite scrolling with hybrid loading
 - [] character count left to post and that cute ring thing twitter has
-- [x] clickable cards to go to post [x] it works but it crashes since dom inside dom link oof 
+- [x] clickable cards to go to post 
 - [x] back button on profile and post
 - [] scrolling anywhere to scroll only inside [ ] (:c)
 - [] tailwind add utility to hidde scrollbar
@@ -19,6 +19,7 @@ Deployed using vercel, planetscale, axiom, clerk and upstash
 - [] sign out button
 - [] hide hover links on card
 - [] move CI from vercel to github
+- [] When hovered over pfp and username it should show link
 
 # Create T3 App
 
