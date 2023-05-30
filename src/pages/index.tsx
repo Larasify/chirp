@@ -5,7 +5,7 @@ import { api } from "~/utils/api";
 
 import Image from "next/image";
 import { LoadingPage, LoadingSpinner } from "~/components/loading";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
 import { PageLayout } from "~/components/layout";
 import { PostView } from "~/components/postview";
@@ -86,6 +86,25 @@ const CreatePostWizard = () => {
 
 const Feed = () => {
   const { data, isLoading: postsLoading } = api.posts.getAll.useQuery();
+  const [contentHover, setContentHover] = useState(false);
+  const contentRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const handleScrolling = (event: { deltaY: number }) => {
+      if (contentRef !== null) {
+        if (contentHover === false) {
+          contentRef.current!.scrollTop += event.deltaY;
+        }
+      }
+    };
+
+    window.addEventListener("wheel", handleScrolling);
+    //console.log("added wheel listener");
+
+    return () => {
+      window.removeEventListener("wheel", handleScrolling);
+      //console.log("removed wheel listener");
+    };
+  });
 
   if (postsLoading) {
     return <LoadingPage />;
@@ -94,7 +113,16 @@ const Feed = () => {
     return <div>No posts!</div>;
   }
   return (
-    <div className="flex grow flex-col overflow-y-scroll">
+    <div
+      className="flex grow flex-col overflow-y-scroll"
+      ref={contentRef}
+      onMouseEnter={() => {
+        setContentHover(true);
+      }}
+      onMouseLeave={() => {
+        setContentHover(false);
+      }}
+    >
       {data.map((fullPost) => (
         <PostView {...fullPost} key={fullPost.post.id} />
       ))}

@@ -8,10 +8,29 @@ import { PostView } from "~/components/postview";
 import { generateSSGHelper } from "~/server/helpers/ssghelper";
 import { BackButton } from "~/components/backbutton";
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 
 const ProfileFeed = (props: { userId: string }) => {
   const { data, isLoading } = api.posts.getPostsByUserId.useQuery({
     userId: props.userId,
+  });
+
+  const [contentHover, setContentHover] = useState(false);
+  const contentRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const handleScrolling = (event: { deltaY: number }) => {
+      if (contentRef !== null) {
+        if (contentHover === false) {
+          contentRef.current!.scrollTop += event.deltaY;
+        }
+      }
+    };
+
+    window.addEventListener("wheel", handleScrolling);
+
+    return () => {
+      window.removeEventListener("wheel", handleScrolling);
+    };
   });
 
   if (isLoading) return <LoadingPage />;
@@ -19,7 +38,16 @@ const ProfileFeed = (props: { userId: string }) => {
   if (!data || data.length === 0) return <div>User has not posted</div>;
 
   return (
-    <div className="flex grow flex-col overflow-y-scroll">
+    <div
+      className="flex grow flex-col overflow-y-scroll"
+      ref={contentRef}
+      onMouseEnter={() => {
+        setContentHover(true);
+      }}
+      onMouseLeave={() => {
+        setContentHover(false);
+      }}
+    >
       {data.map((fullPost) => (
         <PostView {...fullPost} key={fullPost.post.id} />
       ))}
@@ -70,6 +98,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const slug = context.params?.slug;
   if (typeof slug !== "string") throw new Error("slug is not a string");
+  if (!slug.startsWith("@")) return { notFound: true };
 
   const username = slug.replace("@", "");
 
