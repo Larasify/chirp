@@ -11,14 +11,13 @@ Deployed using vercel, planetscale, axiom, clerk and upstash
 - [] gmail login use first name
 - [] infinite scrolling with hybrid loading
 - [] character count left to post and that cute ring thing twitter has
-- [x] clickable cards to go to post 
+- [x] ~~clickable cards to go to post~~ [ ] it works but it crashes since dom inside dom link oof 
 - [x] back button on profile and post
-- [x] ~~scrolling anywhere to scroll only inside~~(there is a warning now :c)
+- [x] ~~scrolling anywhere to scroll only inside~~ [ ] (there is a warning now :c)
 - [] tailwind add utility to hidde scrollbar
 - [] sticky footer pre render before any data is fetched
 - [] sign out button
 - [] hide hover links on card
-- [] link inside link works but errors
 - [] move CI from vercel to github
 
 # Create T3 App

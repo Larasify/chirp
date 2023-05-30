@@ -86,23 +86,6 @@ const CreatePostWizard = () => {
 
 const Feed = () => {
   const [contentHover, setContentHover] = useState(false);
-  /*const contentRef = useRef(null);
-
-  useEffect(() => {
-    const handleScrolling = (event: { deltaY: any }) => {
-      if (contentRef !== null) {
-        if (contentHover === false) {
-          contentRef.current.scrollTop += event.deltaY;
-        }
-      }
-    };
-
-    window.addEventListener("wheel", handleScrolling);
-
-    return () => {
-      window.removeEventListener("wheel", handleScrolling);
-    };
-  });*/
 
   const feedRef = useCallback((node: HTMLDivElement) => {
       const handleScrolling = (event: { deltaY: any }) => {
