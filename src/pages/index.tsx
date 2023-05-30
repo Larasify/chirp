@@ -86,6 +86,8 @@ const CreatePostWizard = () => {
 
 const Feed = () => {
   const { data, isLoading: postsLoading } = api.posts.getAll.useQuery();
+
+  //Related to scrolling
   const [contentHover, setContentHover] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
   useEffect(() => {

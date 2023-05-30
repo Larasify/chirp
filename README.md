@@ -18,6 +18,9 @@ Deployed using vercel, planetscale, axiom, clerk and upstash
 - [] sign out button
 - [] move CI from vercel to github
 - [] When hovered over pfp and username it should show link
+- [] When a new post comes it should animate nicely
+- [x] fix the blocking on clicking profile etc it should change instantly with a loading spinner (removing trpc ssg and dehydrate and adding a page layout to the loading screen so it pre renders it for posts and profile so the user gets it instantly as html and then it fetches the data and hydrates it, did it on posts as example. ig this is better if the page wasn't cached anywhere so cold starts block more but slower if it was already accessed recently)
+
 
 # Create T3 App
 

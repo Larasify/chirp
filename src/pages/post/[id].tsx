@@ -13,7 +13,12 @@ const SinglePostPage: NextPage<{ id: string }> = ({ id }) => {
     postId: id,
   });
 
-  if (isLoading) return <LoadingPage />;
+  if (isLoading)
+    return (
+      <PageLayout>
+        <LoadingPage />
+      </PageLayout>
+    );
 
   if (!data) return <div>404</div>;
 
@@ -32,17 +37,12 @@ const SinglePostPage: NextPage<{ id: string }> = ({ id }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
-  const ssg = generateSSGHelper();
-
+export const getStaticProps: GetStaticProps = (context) => {
   const id = context.params?.id;
   if (typeof id !== "string") throw new Error("id is not a string");
 
-  await ssg.posts.getPostById.prefetch({ postId: id });
-
   return {
     props: {
-      trpcState: ssg.dehydrate(),
       id,
     },
   };
