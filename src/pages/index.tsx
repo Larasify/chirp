@@ -5,7 +5,7 @@ import { api } from "~/utils/api";
 
 import Image from "next/image";
 import { LoadingPage, LoadingSpinner } from "~/components/loading";
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import toast from "react-hot-toast";
 import { PageLayout } from "~/components/layout";
 import { PostView } from "~/components/postview";
@@ -85,23 +85,6 @@ const CreatePostWizard = () => {
 };
 
 const Feed = () => {
-  const [contentHover, setContentHover] = useState(false);
-
-  const feedRef = useCallback((node: HTMLDivElement) => {
-      const handleScrolling = (event: { deltaY: any }) => {
-        if (contentHover === false) {
-          node.scrollTop += event.deltaY;
-        }
-      };
-  
-      window.addEventListener("wheel", handleScrolling);
-  
-      return () => {
-        window.removeEventListener("wheel", handleScrolling);
-      };
-
-  }, []);
-
   const { data, isLoading: postsLoading } = api.posts.getAll.useQuery();
 
   if (postsLoading) {
@@ -111,16 +94,7 @@ const Feed = () => {
     return <div>No posts!</div>;
   }
   return (
-    <div
-      className="content flex grow flex-col overflow-y-scroll"
-      ref={feedRef}
-      onMouseEnter={() => {
-        setContentHover(true);
-      }}
-      onMouseLeave={() => {
-        setContentHover(false);
-      }}
-    >
+    <div className="flex grow flex-col overflow-y-scroll">
       {data.map((fullPost) => (
         <PostView {...fullPost} key={fullPost.post.id} />
       ))}
