@@ -109,7 +109,11 @@ const Feed = () => {
   });
 
   if (postsLoading) {
-    return <LoadingPage />;
+    return (
+      <div className="flex grow">
+        <LoadingPage />
+      </div>
+    );
   }
   if (!data) {
     return <div>No posts!</div>;

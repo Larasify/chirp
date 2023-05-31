@@ -14,7 +14,7 @@ Deployed using vercel, planetscale, axiom, clerk and upstash
 - [x] back button on profile and post
 - [x] scrolling anywhere to scroll only inside [ ] (it is done but its not the most elegant solution)
 - [] tailwind add utility to hidde scrollbar
-- [] sticky footer pre render before any data is fetched
+- [x] sticky footer pre render before any data is fetched
 - [] sign out button
 - [] move CI from vercel to github
 - [] When hovered over pfp and username it should show link
