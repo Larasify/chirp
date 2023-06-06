@@ -1,6 +1,6 @@
 import { clerkClient } from "@clerk/nextjs";
 import { TRPCError } from "@trpc/server";
-import { z } from "zod";
+import { string, z } from "zod";
 import {
   createTRPCRouter,
   privateProcedure,
@@ -73,6 +73,33 @@ export const postsRouter = createTRPCRouter({
   getAll: publicProcedure.query(async ({ ctx }) => {
     const posts = await ctx.prisma.post.findMany({
       take: 100,
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
+
+    return await addUserDataToPosts(posts);
+  }),
+
+  getFirst: publicProcedure.input(z.object({x: z.number()})).query(async ({ ctx, input }) => {
+    const posts = await ctx.prisma.post.findMany({
+      take: input.x,
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
+
+    return await addUserDataToPosts(posts);
+  }),
+
+  getAllSkip: publicProcedure.input(z.object({lastpostid: z.string()})).query(async ({ ctx, input }) => {
+    const cursorid = input.lastpostid;
+    const posts = await ctx.prisma.post.findMany({
+      skip: 1,
+      take: 5,
+      cursor:{
+        id: cursorid,
+      },
       orderBy: {
         createdAt: "desc",
       },
