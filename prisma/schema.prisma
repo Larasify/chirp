@@ -18,8 +18,17 @@ model Post {
 }
 
 model Vote {
-  id           String   @id
-  createdAt    DateTime @default(now())
-  votedFor     Int
-  votedAgainst Int
+  id             String   @id
+  createdAt      DateTime @default(now())
+  votedForId     Int
+  votedAgainstId Int
+
+  @@index([votedAgainstId])
+  @@index([votedForId])
+}
+
+model Pokemon {
+  id        Int    @id
+  name      String
+  spriteUrl String
 }
