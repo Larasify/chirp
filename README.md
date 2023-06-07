@@ -8,12 +8,12 @@ Deployed using vercel, planetscale, axiom, clerk and upstash
 # TODO
 - [] static navigation menu on left side
 - [] gmail login use first name
-- [] infinite scrolling with hybrid loading
+- [x] infinite scrolling with hybrid loading
 - [] character count left to post and that cute ring thing twitter has
 - [x] clickable cards to go to post 
 - [x] back button on profile and post
 - [x] scrolling anywhere to scroll only inside [ ] (it is done but its not the most elegant solution)
-- [] tailwind add utility to hidde scrollbar
+- [] tailwind add utility to hide scrollbar
 - [x] sticky footer pre render before any data is fetched
 - [] sign out button
 - [] move CI from vercel to github
@@ -22,6 +22,8 @@ Deployed using vercel, planetscale, axiom, clerk and upstash
 - [x] fix the blocking on clicking profile etc it should change instantly with a loading spinner (removing trpc ssg and dehydrate and adding a page layout to the loading screen so it pre renders it for posts and profile so the user gets it instantly as html and then it fetches the data and hydrates it, did it on posts as example. ig this is better if the page wasn't cached anywhere so cold starts block more but slower if it was already accessed recently)
 - [x] back button should only go back up to the previous page not back to the home page
 - [] profile descriptions and an edit button that only shows on your own profile, also relations with posts
+- [] smooth scrolling and load more posts when you reach 80% instead of bottom
+- [] when new posts are loading make a loading spinner
 
 # Create T3 App
 
