@@ -28,7 +28,9 @@ model Vote {
 }
 
 model Pokemon {
-  id        Int    @id
-  name      String
-  spriteUrl String
+  id         Int    @id
+  name       String
+  spriteUrl  String
+  smashCount Int    @default(0)
+  passCount  Int    @default(0)
 }
