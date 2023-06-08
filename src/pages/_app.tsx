@@ -14,7 +14,7 @@ const MyApp: AppType = ({ Component, pageProps }) => {
   return (
     <ClerkProvider {...pageProps}>
       <Head>
-      <title>title</title>
+      <title>Chirp</title>
         <meta name="description" content={description} />
         <link rel="icon" href="/turtle.svg" />
 
