@@ -209,7 +209,8 @@ const InfiniteFeed = () => {
       </div>
     );
   }
-  if (!data) {
+
+  if (!data || data.length === 0) {
     return <div>No posts!</div>;
   }
   if (lastpostid === "" || lastpostid !== data[data.length - 1]!.post.id) {
