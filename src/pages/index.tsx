@@ -153,7 +153,14 @@ const InfiniteFeed = () => {
     const handleScrolling = (event: { deltaY: number }) => {
       if (contentRef !== null) {
         if (contentHover === false) {
-          contentRef.current!.scrollTop += event.deltaY;
+          //contentRef.current!.scrollTop += event.deltaY;
+          
+          const scrollPosition = contentRef.current!.scrollTop + event.deltaY;
+          contentRef.current?.scrollTo({
+            top: scrollPosition,
+            behavior: "auto",
+          })
+
         }
       }
     };
